@@ -1,10 +1,15 @@
-# react-apollo-typescript-parcel
+# Introduction
 
-Sample React/Apollo/Typescript/Parcel applications (both back and front)
+Sample React/Apollo/Typescript/Parcel applications
 
-# usage
+# Usage
 
 ```
-yarn install
-yarn start
+yarn install            # installs all node dependencies
+yarn start              # starts dev server for front and back
+yarn test               # runs the test
+yarn test --watch       # runs and watch the tests
+yarn build              # builds front and back
+yarn clean              # cleans build artifact and parcel cache
+yarn reinstall          # reinstalls all node dependendies
 ```
