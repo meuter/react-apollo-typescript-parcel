@@ -30,7 +30,10 @@
     "start:front:parcel": "parcel --out-dir build/frontend/ source/frontend/index.html --target browser",
     "start:back:nodemon": "sleep 2 && nodemon -q --watch build/backend/ build/backend/index.js",
     "start:back:parcel": "parcel --out-dir build/backend/ source/backend/index.ts --target node",
-    "start": "run-p \"start:**\"",
+    "start": "run-p start:**",
+    "build:front": "parcel build --out-dir build/frontend/ source/frontend/index.html --target browser",
+    "build:back": "parcel build --out-dir build/backend/ source/backend/index.ts --target node",
+    "build": "run-p build:**",
     "clean": "rimraf build .cache",
     "reinstall": "rimraf node_modules && yarn install"
   }
