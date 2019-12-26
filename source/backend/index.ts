@@ -9,5 +9,8 @@ import HelloWorldResolver from "./HelloWorldResolver"
         resolvers: [HelloWorldResolver]
     })
     const server = new ApolloServer({ schema });
-    server.listen(PORT)
+    server.listen(PORT).then(({ url }) => {
+        console.log(`Backend  ==> ${url}`)
+        console.log(`Frontend ==> ${url.replace("3000", "8080")}`)
+    })
 })()
