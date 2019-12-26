@@ -1,0 +1,22 @@
+{
+  "name": "react-apollo-typescript-parcel",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "concurrently": "^5.0.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "start:front": "parcel --out-dir build/frontend/ source/frontend/index.html --target browser",
+    "start": "yarn start:front",
+    "clean": "rimraf build .cache",
+    "distclean": "yarn clean && rimraf node_modules",
+    "reinstall": "yarn distclean && yarn install"
+  }
+}
