@@ -1,14 +1,7 @@
 import "reflect-metadata"
 import { ApolloServer } from "apollo-server"
-import { buildSchema, Resolver, Query } from "type-graphql"
-
-@Resolver()
-class HelloWorldResolver {
-    @Query(() => String)
-    helloWorld() {
-        return "Hello World"
-    }
-}
+import { buildSchema } from "type-graphql"
+import { HelloWorldResolver } from "./HelloWorldResolver"
 
 (async () => {
     const PORT = 3000
@@ -16,8 +9,5 @@ class HelloWorldResolver {
         resolvers: [HelloWorldResolver]
     })
     const server = new ApolloServer({ schema });
-
-    server.listen(PORT).then(({ url }) => {
-        console.log(`Apollo server ready at ${url}`);
-    });
+    server.listen(PORT)
 })()
