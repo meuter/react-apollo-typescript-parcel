@@ -46,13 +46,14 @@
     "build:front": "parcel build --out-dir build/frontend/ source/frontend/index.html --target browser",
     "build:back": "parcel build --out-dir build/backend/ source/backend/index.ts --target node",
     "build": "run-p build:**",
-    "clean": "rimraf build .cache",
+    "clean": "rimraf build .cache coverage",
     "reinstall": "rimraf node_modules && yarn install",
     "test": "jest --silent",
     "dist": "run-s clean test build",
     "docker:build": "docker build -t react-apollo-typescript-parcel .",
     "docker:shell": "docker run --rm -it -p 3000:3000 -p 8080:80 react-apollo-typescript-parcel /bin/bash",
     "docker:run": "docker run --rm -it -p 3000:3000 -p 8080:80 react-apollo-typescript-parcel",
-    "docker:clean": "docker rmi react-apollo-typescript-parcel"
+    "docker:clean": "docker rmi -f react-apollo-typescript-parcel",
+    "distclean": "yarn clean && rimraf node_module && yarn docker:clean"
   }
 }
