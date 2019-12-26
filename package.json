@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/graphql": "^14.5.0",
+    "@types/jest": "^24.0.24",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "apollo-boost": "^0.4.7",
@@ -15,6 +16,7 @@
     "concurrently": "^5.0.2",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
+    "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "parcel-bundler": "^1.12.4",
     "react": "^16.12.0",
@@ -22,9 +24,19 @@
     "react-dom": "^16.12.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
+    "ts-jest": "^24.2.0",
     "type-graphql": "^0.17.6",
     "typescript": "^3.7.4",
     "yarn-run-all": "^3.1.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "roots": [
+      "./source"
+    ],
+    "setupFiles": [
+      "./jest-setup.ts"
+    ]
   },
   "scripts": {
     "start:front:parcel": "parcel --out-dir build/frontend/ source/frontend/index.html --target browser",
@@ -35,6 +47,8 @@
     "build:back": "parcel build --out-dir build/backend/ source/backend/index.ts --target node",
     "build": "run-p build:**",
     "clean": "rimraf build .cache",
-    "reinstall": "rimraf node_modules && yarn install"
+    "reinstall": "rimraf node_modules && yarn install",
+    "test": "jest --silent",
+    "dist": "run-s clean test build"
   }
 }
